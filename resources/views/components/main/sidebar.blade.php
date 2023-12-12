@@ -46,6 +46,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('packages') }}" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-bag"></i>
+                        <p>
+                            Packages
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
