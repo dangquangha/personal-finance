@@ -39,7 +39,7 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link active">
+                    <a href="{{ route('dashboard') }}" class="nav-link" data-menu="dashboard">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -47,10 +47,26 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('packages') }}" class="nav-link">
+                    <a href="{{ route('wallets') }}" class="nav-link" data-menu="wallets">
+                        <i class="nav-icon fas fa-wallet"></i>
+                        <p>
+                            Wallets
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('packages') }}" class="nav-link" data-menu="packages">
                         <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Packages
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('transactions') }}" class="nav-link" data-menu="transactions">
+                        <i class="nav-icon fas fa-exchange-alt"></i>
+                        <p>
+                            Transactions
                         </p>
                     </a>
                 </li>

@@ -1,6 +1,6 @@
 <script>
     toastMixin.fire({
-        icon: 'success',
+        icon: 'error',
         animation: true,
         title: "{{ $message }}"
     });

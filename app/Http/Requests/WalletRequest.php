@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use App\Models\Package;
 
-class PackageRequest extends FormRequest
+class WalletRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,13 +25,6 @@ class PackageRequest extends FormRequest
     {
         return [
             'name' => 'required|max:60',
-            'type' => [
-                'required',
-                Rule::in([
-                    Package::TYPE_IN,
-                    Package::TYPE_OUT,
-                ]),
-            ]
         ];
     }
 }

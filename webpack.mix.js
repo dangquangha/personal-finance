@@ -11,6 +11,30 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+const dataBuildJS = [
+    {
+        from: 'resources/js/app.js',
+        to: 'public/js',
+    },
+    {
+        from: 'resources/js/layouts/main.js',
+        to: 'public/js/layouts/main.js',
+    }
+];
+
+dataBuildJS.forEach(item => {
+    mix.js(item.from, item.to)
+})
+
+const dataBuildCSS = [
+    {
+        from: 'resources/sass/app.scss',
+        to: 'public/css',
+    }
+];
+
+dataBuildCSS.forEach(item => {
+    mix.js(item.from, item.to)
+})
+
+mix.vue()

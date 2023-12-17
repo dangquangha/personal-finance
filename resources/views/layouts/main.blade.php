@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
 
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/sweetalert/index.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
@@ -16,10 +18,11 @@
     <script>
         const toastMixin = Swal.mixin({
             toast: true,
-            icon: 'success',
-            title: 'General Title',
-            animation: false,
             position: 'top-right',
+            iconColor: 'white',
+            customClass: {
+                popup: 'colored-toast',
+            },
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -29,6 +32,8 @@
             }
         });
     </script>
+
+    @yield('css')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -48,6 +53,10 @@
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <script src="{{ asset('js/adminlte.js') }}"></script>
+
+    <script src="{{ asset('js/layouts/main.js') }}"></script>
+
+    @yield('script')
 </body>
 
 </html>
