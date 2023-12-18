@@ -52,29 +52,29 @@
                         </thead>
                         <tbody>
                             @foreach ($packages as $package)
-                            <tr>
-                                <th scope="row">{{ $package->id }}</th>
-                                <td>{{ $package->name }}</td>
-                                <td>
-                                    @if ($package->type == \App\Models\Package::TYPE_IN)
-                                    <button class="btn btn-outline-success" disabled>Thu</button>
-                                    @elseif ($package->type == \App\Models\Package::TYPE_OUT)
-                                    <button class="btn btn-outline-danger" disabled>Chi</button>
-                                    @else
-                                    <button class="btn btn-outline-secondary">Không Xác Định</button>
-                                    @endif
-                                </td>
-                                <td>
-                                    <a class="btn btn-success"
-                                        href="{{ route('packages.edit', ['id' => $package->id]) }}">
-                                        <i class="fas fa-pen"></i>
-                                    </a>
+                                <tr>
+                                    <td scope="row">{{ $package->id }}</td>
+                                    <td>{{ $package->name }}</td>
+                                    <td>
+                                        @if ($package->type == \App\Models\Package::TYPE_IN)
+                                        <button class="btn btn-outline-success" disabled>Thu</button>
+                                        @elseif ($package->type == \App\Models\Package::TYPE_OUT)
+                                        <button class="btn btn-outline-danger" disabled>Chi</button>
+                                        @else
+                                        <button class="btn btn-outline-secondary">Không Xác Định</button>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success"
+                                            href="{{ route('packages.edit', ['id' => $package->id]) }}">
+                                            <i class="fas fa-pen"></i>
+                                        </a>
 
-                                    <div class="btn btn-danger btn-delete" data-id="{{ $package->id }}">
-                                        <i class="fas fa-trash"></i>
-                                    </div>
-                                </td>
-                            </tr>
+                                        <div class="btn btn-danger btn-delete" data-id="{{ $package->id }}">
+                                            <i class="fas fa-trash"></i>
+                                        </div>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

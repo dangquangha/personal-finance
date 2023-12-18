@@ -29,27 +29,29 @@
                             <input class="form-control" placeholder="Name" name="name"
                                 value="{{ old('name') ?? $name }}">
                             @error('name')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                             @enderror
 
                             @php
-                            $packageModel = new \App\Models\Package();
-                            $type = old('type') ? old('type') : $type;
+                                $packageModel = new \App\Models\Package();
+                                $type = old('type') ? old('type') : $type;
                             @endphp
                             <label class="font-weight-normal mt-4">Type</label>
                             <select name="type" class="form-control">
                                 <option>Type</option>
-                                <option value="{{ $packageModel::TYPE_IN }}" {!! $type==$packageModel::TYPE_IN
-                                    ? 'selected' : '' !!}>Thu</option>
-                                <option value="{{ $packageModel::TYPE_OUT }}" {!! $type==$packageModel::TYPE_OUT
-                                    ? 'selected' : '' !!}>Chi</option>
+                                <option value="{{ $packageModel::TYPE_IN }}" {!! $type==$packageModel::TYPE_IN ? 'selected' : '' !!}>
+                                    Thu
+                                </option>
+                                <option value="{{ $packageModel::TYPE_OUT }}" {!! $type==$packageModel::TYPE_OUT ? 'selected' : '' !!}>
+                                    Chi
+                                </option>
                             </select>
                             @error('type')
-                            <div class="text-danger">
-                                {{ $message }}
-                            </div>
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
                             @enderror
                         </div>
 

@@ -67,5 +67,4 @@ class Common
         }
         return $phone;
     }
-
 }

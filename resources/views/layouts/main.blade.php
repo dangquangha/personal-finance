@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/sweetalert/index.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="{{ asset('plugins/select2/index.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('plugins/sweetalert/index.js') }}"></script>
     <script>
         const toastMixin = Swal.mixin({
             toast: true,
@@ -52,6 +53,8 @@
 
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('plugins/jquery-mask/index.js') }}"></script>
+    <script src="{{ asset('plugins/select2/index.js') }}"></script>
     <script src="{{ asset('js/adminlte.js') }}"></script>
 
     <script src="{{ asset('js/layouts/main.js') }}"></script>

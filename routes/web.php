@@ -48,4 +48,5 @@ Route::prefix('transactions')->group(function () {
     Route::post('/store', [App\Http\Controllers\TransactionController::class, 'store'])->name('transactions.store');
     Route::get('/edit/{id}', [App\Http\Controllers\TransactionController::class, 'edit'])->name('transactions.edit');
     Route::post('/update/{id}', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions.update');
+    Route::post('/transactions', [App\Http\Controllers\TransactionController::class, 'destroy'])->name('transactions.destroy');
 });
