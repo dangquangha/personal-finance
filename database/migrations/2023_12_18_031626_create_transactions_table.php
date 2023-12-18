@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('wallet_id');
             $table->integer('package_id');
             $table->integer('amount');
+            $table->date('date');
             $table->text('note')->nullable();
             $table->timestamps();
             $table->softDeletes();

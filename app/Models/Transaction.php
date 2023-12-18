@@ -17,6 +17,7 @@ class Transaction extends Model
         'wallet_id',
         'package_id',
         'amount',
+        'date',
         'note'
     ];
 

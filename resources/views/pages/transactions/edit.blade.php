@@ -77,8 +77,16 @@
                             @enderror
 
                             <label class="font-weight-normal mt-4">Amount</label>
-                            <input name="amount" class="form-control" id="amount" value="{{ $transaction->amount }}"/>
+                            <input name="amount" class="form-control" id="amount" value="{{ old('amount') ? old('amount') : $transaction->amount }}"/>
                             @error('amount')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+                            <label class="font-weight-normal mt-4">Date</label>
+                            <input type="date" name="date" class="form-control" value="{{ old('date') ? old('date') : $transaction->date }}">
+                            @error('date')
                                 <div class="text-danger">
                                     {{ $message }}
                                 </div>

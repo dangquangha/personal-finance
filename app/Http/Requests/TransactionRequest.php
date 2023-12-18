@@ -27,6 +27,7 @@ class TransactionRequest extends FormRequest
             'wallet' => 'required',
             'package' => 'required',
             'amount' => 'required',
+            'date' => 'required',
         ];
     }
 }

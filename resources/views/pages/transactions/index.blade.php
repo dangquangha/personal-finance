@@ -2,6 +2,15 @@
 
 @section('title', 'Transactions')
 
+@section('css')
+<style>
+    .select2-selection__clear {
+        font-size: 20px !important;
+        margin-top: -5px
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="content-wrapper">
     <div class="content-header">
@@ -21,16 +30,50 @@
                 @include('components.main.toast-success', ['message' => session('status')])
                 @endif
 
-                <div class="col-md-5 mb-3">
+                <div class="col-md-8 mb-3">
                     <form>
                         <div class="d-flex">
-                            <input class="form-control mr-2" placeholder="Search" name="keyword">
+                            <div class="col-4 pl-0">
+                                <select name="wallet" class="form-control" id="wallet-select">
+                                    <option></option>
+                                    @foreach ($wallets as $w)
+                                        <option value="{{ $w->id }}" {!! $wallet_id == $w->id ? 'selected' : '' !!}>
+                                            {{ $w->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            
+                            <div class="col-4 pl-0">
+                                <select name="package" class="form-control" id="package-select">
+                                    <option></option>
+                                    <optgroup label="Thu">
+                                        @foreach ($packages as $p)
+                                            @if ($p->type == \App\Models\Package::TYPE_IN)
+                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
+                                                    {{ $p->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </optgroup>
+                                    <optgroup label="Chi">
+                                        @foreach ($packages as $p)
+                                            @if ($p->type == \App\Models\Package::TYPE_OUT)
+                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
+                                                    {{ $p->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </optgroup>
+                                </select>
+                            </div>
+
                             <button class="btn btn-secondary" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="col-md-7 mb-3">
+                <div class="col-md-4 mb-3">
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-primary px-3" href="{{ route('transactions.create') }}">Add +</a>
                     </div>
@@ -76,8 +119,8 @@
                                     <td scope="row">
                                         {!! textareaBreakLine($transaction->note) !!}
                                     </td>
-                                    <td scope="row" class="{{ $itempackageType }}">
-                                        {{ number_format($transaction->amount) }}
+                                    <td scope="row">
+                                        {{ (new DateTime($transaction->date))->format("d/m/Y") }}
                                     </td>
                                     <td>
                                         <a class="btn btn-success"
@@ -110,5 +153,15 @@
 @endsection
 
 @section('script')
-@include('components.main.toast-delete')
+    @include('components.main.toast-delete')
+    <script>
+        $('#wallet-select').select2({
+            placeholder: "Select a wallet",
+            allowClear: true
+        });
+        $('#package-select').select2({
+            placeholder: "Select a package",
+            allowClear: true
+        });
+    </script>
 @endsection

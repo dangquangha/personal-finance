@@ -12,6 +12,9 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
+        $wallets = Wallet::all();
+        $packages = Package::all();
+
         $transactions = new Transaction();
         $transactions = $transactions->with(['wallet', 'package']);
         if ($request->wallet) {
@@ -25,7 +28,9 @@ class TransactionController extends Controller
         $viewData = [
             'wallet_id' => $request->wallet,
             'package_id' => $request->package,
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'wallets' => $wallets,
+            'packages' => $packages
         ];
 
         return view('pages.transactions.index')->with($viewData);
@@ -50,6 +55,7 @@ class TransactionController extends Controller
             'wallet_id' => $request->wallet,
             'package_id' => $request->package,
             'amount' => $request->amount,
+            'date' => $request->date,
             'note' => $request->note
         ];
 
@@ -88,6 +94,7 @@ class TransactionController extends Controller
             'wallet_id' => $request->wallet,
             'package_id' => $request->package,
             'amount' => (int) str_replace('.', '', $request->amount),
+            'date' => $request->date,
             'note' => $request->note
         ]);
 
