@@ -35,10 +35,18 @@
                             <label class="font-weight-normal mt-4">Type</label>
                             <select name="type" class="form-control">
                                 <option>Type</option>
-                                <option value="{{ $packageModel::TYPE_IN }}" {!! old('type')==$packageModel::TYPE_IN
-                                    ? 'selected' : '' !!}>Thu</option>
-                                <option value="{{ $packageModel::TYPE_OUT }}" {!! old('type')==$packageModel::TYPE_OUT
-                                    ? 'selected' : '' !!}>Chi</option>
+                                <option value="{{ $packageModel::TYPE_IN }}" {!! old('type')==$packageModel::TYPE_IN ? 'selected' : '' !!}>
+                                    Thu
+                                </option>
+                                <option value="{{ $packageModel::TYPE_OUT }}" {!! old('type')==$packageModel::TYPE_OUT ? 'selected' : '' !!}>
+                                    Chi
+                                </option>
+                                <option value="{{ $packageModel::TYPE_LEND }}" {!! old('type')==$packageModel::TYPE_LEND ? 'selected' : '' !!}>
+                                    Cho Vay
+                                </option>
+                                <option value="{{ $packageModel::TYPE_INVEST }}" {!! old('type')==$packageModel::TYPE_INVEST ? 'selected' : '' !!}>
+                                    Đầu Tư
+                                </option>
                             </select>
                             @error('type')
                             <div class="text-danger">

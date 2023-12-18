@@ -32,6 +32,8 @@ class PackageRequest extends FormRequest
                 Rule::in([
                     Package::TYPE_IN,
                     Package::TYPE_OUT,
+                    Package::TYPE_LEND,
+                    Package::TYPE_INVEST,
                 ]),
             ]
         ];

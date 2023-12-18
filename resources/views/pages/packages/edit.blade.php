@@ -47,6 +47,12 @@
                                 <option value="{{ $packageModel::TYPE_OUT }}" {!! $type==$packageModel::TYPE_OUT ? 'selected' : '' !!}>
                                     Chi
                                 </option>
+                                <option value="{{ $packageModel::TYPE_LEND }}" {!! $type==$packageModel::TYPE_LEND ? 'selected' : '' !!}>
+                                    Cho Vay
+                                </option>
+                                <option value="{{ $packageModel::TYPE_INVEST }}" {!! $type==$packageModel::TYPE_INVEST ? 'selected' : '' !!}>
+                                    Đầu Tư
+                                </option>
                             </select>
                             @error('type')
                                 <div class="text-danger">

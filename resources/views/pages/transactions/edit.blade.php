@@ -69,6 +69,26 @@
                                         @endif
                                     @endforeach
                                 </optgroup>
+
+                                <optgroup label="Cho Vay">
+                                    @foreach ($packages as $p)
+                                        @if ($p->type == \App\Models\Package::TYPE_LEND)
+                                            <option value="{{ $p->id }}" {!! $package == $p->id ? 'selected' : '' !!}>
+                                                {{ $p->name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
+
+                                <optgroup label="Đầu Tư">
+                                    @foreach ($packages as $p)
+                                        @if ($p->type == \App\Models\Package::TYPE_INVEST)
+                                            <option value="{{ $p->id }}" {!! $package == $p->id ? 'selected' : '' !!}>
+                                                {{ $p->name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
                             </select>
                             @error('package')
                                 <div class="text-danger">

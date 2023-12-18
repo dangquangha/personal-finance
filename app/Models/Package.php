@@ -13,6 +13,8 @@ class Package extends Model
 
     const TYPE_IN = 1;
     const TYPE_OUT = 2;
+    const TYPE_LEND = 3;
+    const TYPE_INVEST = 4;
 
     protected $fillable = [
         'name',

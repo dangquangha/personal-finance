@@ -65,6 +65,24 @@
                                             @endif
                                         @endforeach
                                     </optgroup>
+                                    <optgroup label="Cho Vay">
+                                        @foreach ($packages as $p)
+                                            @if ($p->type == \App\Models\Package::TYPE_LEND)
+                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
+                                                    {{ $p->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </optgroup>
+                                    <optgroup label="Đầu Tư">
+                                        @foreach ($packages as $p)
+                                            @if ($p->type == \App\Models\Package::TYPE_INVEST)
+                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
+                                                    {{ $p->name }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </optgroup>
                                 </select>
                             </div>
 
@@ -83,12 +101,11 @@
                     <table class="table table-bordered table-hover" style="background: #fff">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" width="5%">Id</th>
+                                <th scope="col" width="15%">Date</th>
                                 <th scope="col" width="15%">Wallet</th>
                                 <th scope="col" width="20%">Package</th>
                                 <th scope="col" width="15%">Amount</th>
-                                <th scope="col" width="20%">Note</th>
-                                <th scope="col" width="15%">Date</th>
+                                <th scope="col" width="25%">Note</th>
                                 <th scope="col" width="10%" class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -104,9 +121,17 @@
                                     if ($itemPackage && $itemPackage->type == \App\Models\Package::TYPE_OUT) {
                                         $itempackageType = 'text-danger';
                                     }
+                                    if ($itemPackage && $itemPackage->type == \App\Models\Package::TYPE_LEND) {
+                                        $itempackageType = 'text-warning';
+                                    }
+                                    if ($itemPackage && $itemPackage->type == \App\Models\Package::TYPE_INVEST) {
+                                        $itempackageType = 'text-warning';
+                                    }
                                 @endphp
                                 <tr>
-                                    <td scope="row">{{ $transaction->id }}</td>
+                                    <td scope="row">
+                                        {{ (new DateTime($transaction->date))->format("d/m/Y") }}
+                                    </td>
                                     <td scope="row">
                                         {{ $itemWallet ? $itemWallet->name : 'Không Xác Định' }}
                                     </td>
@@ -118,9 +143,6 @@
                                     </td>
                                     <td scope="row">
                                         {!! textareaBreakLine($transaction->note) !!}
-                                    </td>
-                                    <td scope="row">
-                                        {{ (new DateTime($transaction->date))->format("d/m/Y") }}
                                     </td>
                                     <td>
                                         <a class="btn btn-success"
@@ -138,7 +160,7 @@
                     </table>
 
                     <div class="d-flex justify-content-end">
-                        {{ $transactions->links() }}
+                        {{ $transactions->appends(request()->query())->links() }}
                     </div>
                 </div>
 

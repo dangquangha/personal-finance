@@ -56,13 +56,22 @@
                                     <td scope="row">{{ $package->id }}</td>
                                     <td>{{ $package->name }}</td>
                                     <td>
-                                        @if ($package->type == \App\Models\Package::TYPE_IN)
-                                        <button class="btn btn-outline-success" disabled>Thu</button>
-                                        @elseif ($package->type == \App\Models\Package::TYPE_OUT)
-                                        <button class="btn btn-outline-danger" disabled>Chi</button>
-                                        @else
-                                        <button class="btn btn-outline-secondary">Không Xác Định</button>
-                                        @endif
+                                        @switch($package->type)
+                                            @case(\App\Models\Package::TYPE_IN)
+                                                <button class="btn btn-outline-success" disabled>Thu</button>
+                                                @break
+                                            @case(\App\Models\Package::TYPE_OUT)
+                                                <button class="btn btn-outline-danger" disabled>Chi</button>
+                                                @break
+                                            @case(\App\Models\Package::TYPE_LEND)
+                                                <button class="btn btn-outline-warning" disabled>Cho Vay</button>
+                                                @break
+                                            @case(\App\Models\Package::TYPE_INVEST)
+                                                <button class="btn btn-outline-warning" disabled>Đầu Tư</button>
+                                                @break
+                                            @default
+                                                <button class="btn btn-outline-secondary">Không Xác Định</button>
+                                        @endswitch
                                     </td>
                                     <td>
                                         <a class="btn btn-success"
@@ -80,7 +89,7 @@
                     </table>
 
                     <div class="d-flex justify-content-end">
-                        {{ $packages->links() }}
+                        {{ $packages->appends(request()->query())->links() }}
                     </div>
                 </div>
 

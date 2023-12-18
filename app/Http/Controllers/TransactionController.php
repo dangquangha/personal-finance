@@ -24,7 +24,7 @@ class TransactionController extends Controller
             $transactions = $transactions->where('package_id', $request->package);
         }
 
-        $transactions = $transactions->orderBy('id', 'desc')->paginate(10);
+        $transactions = $transactions->orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(10);
         $viewData = [
             'wallet_id' => $request->wallet,
             'package_id' => $request->package,

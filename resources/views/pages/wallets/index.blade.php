@@ -70,7 +70,7 @@
                     </table>
 
                     <div class="d-flex justify-content-end">
-                        {{ $wallets->links() }}
+                        {{ $wallets->appends(request()->query())->links() }}
                     </div>
                 </div>
 
