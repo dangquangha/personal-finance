@@ -70,6 +70,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('budgets') }}" class="nav-link {{ Request::is('budgets*') ? 'active' : '' }}" data-menu="transactions">
+                        <i class="nav-icon fas fa-tasks"></i>
+                        <p>
+                            Budgets
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

@@ -48,5 +48,14 @@ Route::prefix('transactions')->group(function () {
     Route::post('/store', [App\Http\Controllers\TransactionController::class, 'store'])->name('transactions.store');
     Route::get('/edit/{id}', [App\Http\Controllers\TransactionController::class, 'edit'])->name('transactions.edit');
     Route::post('/update/{id}', [App\Http\Controllers\TransactionController::class, 'update'])->name('transactions.update');
-    Route::post('/transactions', [App\Http\Controllers\TransactionController::class, 'destroy'])->name('transactions.destroy');
+    Route::post('/destroy', [App\Http\Controllers\TransactionController::class, 'destroy'])->name('transactions.destroy');
+});
+
+Route::prefix('budgets')->group(function () {
+    Route::get('/', [App\Http\Controllers\BudgetController::class, 'index'])->name('budgets');
+    Route::get('/create', [App\Http\Controllers\BudgetController::class, 'create'])->name('budgets.create');
+    Route::post('/store', [App\Http\Controllers\BudgetController::class, 'store'])->name('budgets.store');
+    Route::get('/edit/{id}', [App\Http\Controllers\BudgetController::class, 'edit'])->name('budgets.edit');
+    Route::post('/update/{id}', [App\Http\Controllers\BudgetController::class, 'update'])->name('budgets.update');
+    Route::post('/destroy', [App\Http\Controllers\BudgetController::class, 'destroy'])->name('budgets.destroy');
 });
