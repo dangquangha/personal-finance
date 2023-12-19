@@ -4,13 +4,13 @@ const MAIN = {
     },
 
     activeMenu() {
-        const currentUrl = window.location.href;
+        // const currentUrl = window.location.href;
 
-        const urlParts = currentUrl.split("/");
+        // const urlParts = currentUrl.split("/");
 
-        const menu = urlParts[3];
+        // const menu = urlParts[3];
 
-        $(`.nav-item .nav-link[data-menu="${menu}"]`).addClass('active')
+        // $(`.nav-item .nav-link[data-menu="${menu}"]`).addClass('active')
     },
 };
 

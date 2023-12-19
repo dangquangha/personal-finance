@@ -39,7 +39,7 @@
                     </ul>
                 </li> --}}
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}" class="nav-link" data-menu="dashboard">
+                    <a href="{{ route('dashboard') }}" class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}" data-menu="dashboard">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('wallets') }}" class="nav-link" data-menu="wallets">
+                    <a href="{{ route('wallets') }}" class="nav-link {{ Request::is('wallets*') ? 'active' : '' }}" data-menu="wallets">
                         <i class="nav-icon fas fa-wallet"></i>
                         <p>
                             Wallets
@@ -55,7 +55,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('packages') }}" class="nav-link" data-menu="packages">
+                    <a href="{{ route('packages') }}" class="nav-link {{ Request::is('packages*') ? 'active' : '' }}" data-menu="packages">
                         <i class="nav-icon fas fa-shopping-bag"></i>
                         <p>
                             Packages
@@ -63,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('transactions') }}" class="nav-link" data-menu="transactions">
+                    <a href="{{ route('transactions') }}" class="nav-link {{ Request::is('transactions*') ? 'active' : '' }}" data-menu="transactions">
                         <i class="nav-icon fas fa-exchange-alt"></i>
                         <p>
                             Transactions

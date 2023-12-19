@@ -139,7 +139,7 @@
                                         {{ $itemPackage ? $itemPackage->name : 'Không Xác Định' }}
                                     </td>
                                     <td scope="row" class="{{ $itempackageType }}">
-                                        {{ number_format($transaction->amount) }}
+                                        {{ number_format($transaction->amount, 0, ',', '.') }}
                                     </td>
                                     <td scope="row">
                                         {!! textareaBreakLine($transaction->note) !!}

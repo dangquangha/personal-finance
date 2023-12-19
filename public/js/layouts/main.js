@@ -7,11 +7,10 @@ var MAIN = {
   init: function init() {
     this.activeMenu();
   },
-  activeMenu: function activeMenu() {
-    var currentUrl = window.location.href;
-    var urlParts = currentUrl.split("/");
-    var menu = urlParts[3];
-    $(".nav-item .nav-link[data-menu=\"".concat(menu, "\"]")).addClass('active');
+  activeMenu: function activeMenu() {// const currentUrl = window.location.href;
+    // const urlParts = currentUrl.split("/");
+    // const menu = urlParts[3];
+    // $(`.nav-item .nav-link[data-menu="${menu}"]`).addClass('active')
   }
 };
 $(document).ready(function () {

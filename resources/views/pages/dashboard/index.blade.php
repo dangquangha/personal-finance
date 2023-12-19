@@ -2,6 +2,8 @@
 
 @section('title', 'Dashboard')
 
+@section('css')
+@endsection
 
 @section('content')
     <div class="content-wrapper">
@@ -63,15 +65,15 @@
                                 <tbody>
                                     <tr>
                                         <td>Mark</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                        <td>{{ number_format(1000000) }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
                                     </tr>
                                     <tr>
                                         <td>Jacob</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                        <td>{{ number_format(1000000) }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
+                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
                                     </tr>
                                 </tbody>
                             </table>
