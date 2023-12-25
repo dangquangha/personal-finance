@@ -8,6 +8,15 @@
         font-size: 20px !important;
         margin-top: -5px
     }
+
+    table td p {
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        word-break: break-word;
+    }
 </style>
 @endsection
 
@@ -142,7 +151,9 @@
                                         {{ number_format($transaction->amount, 0, ',', '.') }}
                                     </td>
                                     <td scope="row">
-                                        {!! textareaBreakLine($transaction->note) !!}
+                                        <p class="mb-0">
+                                            {!! textareaBreakLine($transaction->note) !!}
+                                        </p>
                                     </td>
                                     <td>
                                         <a class="btn btn-success"

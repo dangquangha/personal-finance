@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Wallets | Edit')
+@section('title', 'Budgets | Edit')
 
 @section('content')
     <div class="content-wrapper">
@@ -8,7 +8,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Wallets | Edit</h1>
+                        <h1 class="m-0">Budgets | Edit</h1>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     @endif
 
                     <div class="col-md-6">
-                        <form method="POST" action="{{ route('wallets.update', ['id' => $id]) }}">
+                        <form method="POST" action="{{ route('budgets.update', ['id' => $id]) }}">
                             @csrf
                             <div class="form-group">
                                 <label class="font-weight-normal">Name</label>
