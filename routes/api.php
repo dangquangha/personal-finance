@@ -14,9 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/auth/login', [App\Http\Controllers\Api\AuthController::class, 'login']);
+
 Route::get('/demo', function (Request $request) {
     return response()->json([
         'key' => 'value',
         'key1' => 'value 1',
     ], 200);
+});
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/demo1', function (Request $request) {
+        return response()->json([
+            'key' => 'value',
+            'key1' => 'value 1',
+        ], 200);
+    });
 });

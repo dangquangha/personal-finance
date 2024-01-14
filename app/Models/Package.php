@@ -16,6 +16,8 @@ class Package extends Model
     const TYPE_LEND = 3;
     const TYPE_INVEST = 4;
 
+    const PACKAGE_CHANGE_PACKAGE_ID = 14;
+
     protected $fillable = [
         'name',
         'type'

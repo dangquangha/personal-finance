@@ -13,6 +13,8 @@ class Transaction extends Model
     use HasFactory;
     use SoftDeletes;
 
+    const WALLET_CASH_ID = 1;
+
     protected $fillable = [
         'wallet_id',
         'package_id',

@@ -25,16 +25,28 @@
                 @include('components.main.toast-error', ['message' => session('error')])
                 @endif
 
-                <div class="col-md-5 mb-3">
+                <div class="col-md-6 mb-3">
                     <form>
                         <div class="d-flex">
                             <input class="form-control mr-2" placeholder="Search" name="keyword" value="{{ $keyword }}">
+
+                            @php
+                                $packageModel = new App\Models\Package();
+                            @endphp
+                            
+                            <select name="type" id="" class="form-control mr-2">
+                                <option value="{{ $packageModel::TYPE_IN }}" {!! $type == $packageModel::TYPE_IN ? 'selected' : '' !!}>Thu</option>
+                                <option value="{{ $packageModel::TYPE_OUT }}" {!! $type == $packageModel::TYPE_OUT ? 'selected' : '' !!}>Chi</option>
+                                <option value="{{ $packageModel::TYPE_LEND }}" {!! $type == $packageModel::TYPE_LEND ? 'selected' : '' !!}>Cho Vay</option>
+                                <option value="{{ $packageModel::TYPE_INVEST }}" {!! $type == $packageModel::TYPE_INVEST ? 'selected' : '' !!}>Đầu Tư</option>
+                            </select>  
+
                             <button class="btn btn-secondary" type="submit">Search</button>
                         </div>
                     </form>
                 </div>
 
-                <div class="col-md-7 mb-3">
+                <div class="col-md-6 mb-3">
                     <div class="d-flex justify-content-end">
                         <a class="btn btn-primary px-3" href="{{ route('packages.create') }}">Add +</a>
                     </div>

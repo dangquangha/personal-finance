@@ -23,6 +23,10 @@ const dataBuildJS = [
     {
         from: 'resources/js/pages/transactions/index.js',
         to: 'public/js/pages/transactions/index.js',
+    },
+    {
+        from: 'resources/js/pages/dashboard/index.js',
+        to: 'public/js/pages/dashboard/index.js',
     }
 ];
 

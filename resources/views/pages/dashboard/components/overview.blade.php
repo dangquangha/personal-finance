@@ -17,7 +17,8 @@
                 <h4>{{ number_format($overview['wallets'][0]['amount'], 0, ',', '.') }}</h4>
 
                 <p>
-                    <a href="{{ route('transactions', ['wallet' => $overview['wallets'][0]['id']]) }}" class="text-light">
+                    {{-- <a href="{{ route('transactions', ['wallet' => $overview['wallets'][0]['id']]) }}" class="text-light"> --}}
+                    <a href="#" class="text-light">
                         {{ $overview['wallets'][0]['name'] }}
                     <a>
                 </p>
@@ -33,7 +34,7 @@
                 <h4>{{ number_format($overview['wallets'][1]['amount'], 0, ',', '.') }}</h4>
 
                 <p>
-                    <a href="{{ route('transactions', ['wallet' => $overview['wallets'][1]['id']]) }}" class="text-dark">
+                    <a href="#" class="text-dark">
                         {{ $overview['wallets'][1]['name'] }}
                     </a>
                 </p>
@@ -49,7 +50,7 @@
                 <h4>{{ number_format($overview['wallets'][2]['amount'], 0, ',', '.') }}</h4>
 
                 <p>
-                    <a href="{{ route('transactions', ['wallet' => $overview['wallets'][2]['id']]) }}" class="text-light">
+                    <a href="#" class="text-light">
                         {{ $overview['wallets'][2]['name'] }}
                     </a>
                 </p>

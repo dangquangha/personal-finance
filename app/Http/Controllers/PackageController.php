@@ -11,16 +11,21 @@ class PackageController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
+        $type = $request->type;
 
         $packages = new Package();
         if ($keyword) {
             $packages = $packages->where('name', 'like', "%$keyword%");
         }
+        if ($type) {
+            $packages = $packages->where('type', '=', $type);
+        }
 
-        $packages = $packages->orderBy('id', 'desc')->paginate(10);
+        $packages = $packages->orderBy('type', 'asc')->orderBy('id', 'desc')->paginate(10);
         $viewData = [
             'keyword' => $keyword,
-            'packages' => $packages
+            'type' => $type,
+            'packages' => $packages,
         ];
         return view('pages.packages.index')->with($viewData);
     }

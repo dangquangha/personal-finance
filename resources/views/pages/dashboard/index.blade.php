@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('css')
+
 @endsection
 
 @section('content')
@@ -29,58 +30,21 @@
                 @include('pages.dashboard.components.overview')
 
                 <div class="row">
-                    <div class="col-md-5">
-                        <div class="card p-2">
-                            <table class="table table-bordered table-hover mb-0" style="background: #fff">
-                                <thead>
-                                    <tr class="bg-danger">
-                                        <th scope="col" width="50%">Temporary Deposit</th>
-                                        <th scope="col" width="50%">Amount</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Hải</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hải</td>
-                                        <td>{{ number_format(1000000) }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-md-6">
+                        <canvas id="chart-by-months"></canvas>
                     </div>
-                    <div class="col-md-7">
-                        <div class="card p-2">
-                            <table class="table table-bordered table-hover mb-0" style="background: #fff">
-                                <thead>
-                                    <tr class="bg-success">
-                                        <th scope="col" width="25%">Package</th>
-                                        <th scope="col" width="25%">Amount</th>
-                                        <th scope="col" width="25%" class="bg-danger">Amount Used</th>
-                                        <th scope="col" width="25%">Amount Left</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jacob</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                        <td>{{ number_format(1000000, 0, ',', '.') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-md-6">
+                        <canvas id="chart-by-budgets"></canvas>
                     </div>
                 </div>
             </div>
         </section>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        const CHART_BY_MONTHS = JSON.parse('{!! $monthsInYear !!}');
+    </script>"
+    <script src="{{ asset('js/pages/dashboard/index.js') }}"></script>
 @endsection
