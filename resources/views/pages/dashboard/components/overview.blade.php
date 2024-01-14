@@ -17,7 +17,6 @@
                 <h4>{{ number_format($overview['wallets'][0]['amount'], 0, ',', '.') }}</h4>
 
                 <p>
-                    {{-- <a href="{{ route('transactions', ['wallet' => $overview['wallets'][0]['id']]) }}" class="text-light"> --}}
                     <a href="#" class="text-light">
                         {{ $overview['wallets'][0]['name'] }}
                     <a>
