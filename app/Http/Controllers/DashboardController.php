@@ -94,7 +94,6 @@ class DashboardController extends Controller
             $moneyInInMonth = Transaction::with('package')
                 ->where('date', '>=', $from)
                 ->where('date', '<', $to)
-                ->where('wallet_id', Transaction::WALLET_CASH_ID)
                 ->whereHas('package', function ($query) {
                     $query->where('type', Package::TYPE_IN);
                 })
@@ -104,8 +103,6 @@ class DashboardController extends Controller
             $moneyOutInMonth = Transaction::with('package')
                 ->where('date', '>=', $from)
                 ->where('date', '<', $to)
-                ->where('wallet_id', Transaction::WALLET_CASH_ID)
-                ->where('package_id', '<>', Package::PACKAGE_CHANGE_PACKAGE_ID)
                 ->whereHas('package', function ($query) {
                     $query->where('type', Package::TYPE_OUT);
                 })

@@ -46,14 +46,14 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('wallets') }}" class="nav-link {{ Request::is('wallets*') ? 'active' : '' }}" data-menu="wallets">
                         <i class="nav-icon fas fa-wallet"></i>
                         <p>
                             Wallets
                         </p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{ route('packages') }}" class="nav-link {{ Request::is('packages*') ? 'active' : '' }}" data-menu="packages">
                         <i class="nav-icon fas fa-shopping-bag"></i>

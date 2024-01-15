@@ -16,20 +16,16 @@ class TransactionController extends Controller
         $packages = Package::all();
 
         $transactions = new Transaction();
-        $transactions = $transactions->with(['wallet', 'package']);
-        if ($request->wallet) {
-            $transactions = $transactions->where('wallet_id', $request->wallet);
-        }
+        $transactions = $transactions->with(['package']);
+        
         if ($request->package) {
             $transactions = $transactions->where('package_id', $request->package);
         }
 
         $transactions = $transactions->orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(10);
         $viewData = [
-            'wallet_id' => $request->wallet,
             'package_id' => $request->package,
             'transactions' => $transactions,
-            'wallets' => $wallets,
             'packages' => $packages
         ];
 
@@ -38,11 +34,9 @@ class TransactionController extends Controller
 
     public function create()
     {
-        $wallets = Wallet::all();
         $packages = Package::all();
 
         $viewData = [
-            'wallets' => $wallets,
             'packages' => $packages
         ];
 
@@ -52,7 +46,6 @@ class TransactionController extends Controller
     public function store(TransactionRequest $request)
     {
         $dataCreate = [
-            'wallet_id' => $request->wallet,
             'package_id' => $request->package,
             'amount' => $request->amount,
             'date' => $request->date,
@@ -75,13 +68,11 @@ class TransactionController extends Controller
                 ->with('error', 'Transaction Not Found');
         }
 
-        $wallets = Wallet::all();
         $packages = Package::all();
 
         $viewData = [
             'id' => $id,
             'transaction' => $transaction,
-            'wallets' => $wallets,
             'packages' => $packages
         ];
         
@@ -91,7 +82,6 @@ class TransactionController extends Controller
     public function update($id, TransactionRequest $request)
     {
         $updateWallet = Transaction::where('id', $id)->update([
-            'wallet_id' => $request->wallet,
             'package_id' => $request->package,
             'amount' => (int) str_replace('.', '', $request->amount),
             'date' => $request->date,

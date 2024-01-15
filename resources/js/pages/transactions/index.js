@@ -5,9 +5,6 @@ const TRANSACTIONS = {
     },
 
     buildSelect2() {
-        $('#wallet-select').select2({
-            placeholder: "Select a wallet",
-        });
         $('#package-select').select2({
             placeholder: "Select a package",
         });

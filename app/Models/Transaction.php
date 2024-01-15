@@ -16,7 +16,6 @@ class Transaction extends Model
     const WALLET_CASH_ID = 1;
 
     protected $fillable = [
-        'wallet_id',
         'package_id',
         'amount',
         'date',
@@ -26,11 +25,6 @@ class Transaction extends Model
     public function setAmountAttribute($value)
     {
         $this->attributes['amount'] = (int) str_replace('.', '', $value);
-    }
-
-    public function wallet()
-    {
-        return $this->belongsTo(Wallet::class, 'wallet_id', 'id');
     }
 
     public function package()

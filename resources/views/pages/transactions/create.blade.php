@@ -21,21 +21,6 @@
                     <form method="POST" action="{{ route('transactions.store') }}">
                         @csrf
                         <div class="form-group">
-                            <label class="font-weight-normal">Wallet</label>
-                            <select name="wallet" class="form-control" id="wallet-select">
-                                <option></option>
-                                @foreach ($wallets as $w)
-                                    <option value="{{ $w->id }}" {!! old('wallet') == $w->id ? 'selected' : '' !!}>
-                                        {{ $w->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('wallet')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-
                             <label class="font-weight-normal mt-4">Package</label>
                             <select name="package" class="form-control" id="package-select">
                                 <option></option>

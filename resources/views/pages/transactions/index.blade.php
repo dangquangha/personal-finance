@@ -43,17 +43,6 @@
                     <form>
                         <div class="d-flex">
                             <div class="col-4 pl-0">
-                                <select name="wallet" class="form-control" id="wallet-select">
-                                    <option></option>
-                                    @foreach ($wallets as $w)
-                                        <option value="{{ $w->id }}" {!! $wallet_id == $w->id ? 'selected' : '' !!}>
-                                            {{ $w->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            
-                            <div class="col-4 pl-0">
                                 <select name="package" class="form-control" id="package-select">
                                     <option></option>
                                     <optgroup label="Thu">
@@ -111,7 +100,6 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" width="15%">Date</th>
-                                <th scope="col" width="15%">Wallet</th>
                                 <th scope="col" width="20%">Package</th>
                                 <th scope="col" width="15%">Amount</th>
                                 <th scope="col" width="25%">Note</th>
@@ -140,9 +128,6 @@
                                 <tr>
                                     <td scope="row">
                                         {{ (new DateTime($transaction->date))->format("d/m/Y") }}
-                                    </td>
-                                    <td scope="row">
-                                        {{ $itemWallet ? $itemWallet->name : 'Không Xác Định' }}
                                     </td>
                                     <td scope="row">
                                         {{ $itemPackage ? $itemPackage->name : 'Không Xác Định' }}

@@ -26,24 +26,6 @@
                         @csrf
                         <div class="form-group">
                             @php
-                                $wallet = old('wallet') ? old('wallet') : $transaction->wallet_id;
-                            @endphp
-                            <label class="font-weight-normal">Wallet</label>
-                            <select name="wallet" class="form-control" id="wallet-select">
-                                <option></option>
-                                @foreach ($wallets as $w)
-                                    <option value="{{ $w->id }}" {!! $wallet == $w->id ? 'selected' : '' !!}>
-                                        {{ $w->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('wallet')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-
-                            @php
                                 $package = old('package') ? old('package') : $transaction->package_id;
                             @endphp
                             <label class="font-weight-normal mt-4">Package</label>
