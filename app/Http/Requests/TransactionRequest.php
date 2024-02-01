@@ -24,7 +24,6 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'wallet' => 'required',
             'package' => 'required',
             'amount' => 'required',
             'date' => 'required',
