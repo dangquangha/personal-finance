@@ -22,8 +22,27 @@ class TransactionController extends Controller
             $transactions = $transactions->where('package_id', $request->package);
         }
 
+        if ($request->year) {
+            $transactions = $transactions->where('date', '>=', $request->year . '-01-01');
+            $transactions = $transactions->where('date', '<=', $request->year . '-12-31');
+        }
+
+        if ($request->month) {
+            if (!$request->year) {
+                $request->year = date('Y');
+            }
+            $year = $request->year;
+            $month = $request->month < 10 ? "0" . $request->month : $request->month;
+            $transactions = $transactions->where('date', 'LIKE', "$year-$month-%");
+        }
+
         $transactions = $transactions->orderBy('date', 'desc')->orderBy('id', 'desc')->paginate(10);
         $viewData = [
+            'filter' => [
+                'package_id' => $request->package,
+                'year' => $request->year,
+                'month' => $request->month,
+            ],
             'package_id' => $request->package,
             'transactions' => $transactions,
             'packages' => $packages

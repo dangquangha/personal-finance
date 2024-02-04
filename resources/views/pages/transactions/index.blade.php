@@ -42,46 +42,66 @@
                 <div class="col-md-8 mb-3">
                     <form>
                         <div class="d-flex">
-                            <div class="col-4 pl-0">
-                                <select name="package" class="form-control" id="package-select">
-                                    <option></option>
-                                    <optgroup label="Thu">
-                                        @foreach ($packages as $p)
-                                            @if ($p->type == \App\Models\Package::TYPE_IN)
-                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
-                                                    {{ $p->name }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </optgroup>
-                                    <optgroup label="Chi">
-                                        @foreach ($packages as $p)
-                                            @if ($p->type == \App\Models\Package::TYPE_OUT)
-                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
-                                                    {{ $p->name }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </optgroup>
-                                    <optgroup label="Cho Vay">
-                                        @foreach ($packages as $p)
-                                            @if ($p->type == \App\Models\Package::TYPE_LEND)
-                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
-                                                    {{ $p->name }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </optgroup>
-                                    <optgroup label="Đầu Tư">
-                                        @foreach ($packages as $p)
-                                            @if ($p->type == \App\Models\Package::TYPE_INVEST)
-                                                <option value="{{ $p->id }}" {!! $package_id == $p->id ? 'selected' : '' !!}>
-                                                    {{ $p->name }}
-                                                </option>
-                                            @endif
-                                        @endforeach
-                                    </optgroup>
-                                </select>
+                            <div class="col-5 pl-0">
+                                <div class="d-flex justify-content-between">
+                                    <select name="package" class="form-control" id="package-select" style="width: 33%">
+                                        <option></option>
+                                        <optgroup label="Thu">
+                                            @foreach ($packages as $p)
+                                                @if ($p->type == \App\Models\Package::TYPE_IN)
+                                                    <option value="{{ $p->id }}" {!! $filter['package_id'] == $p->id ? 'selected' : '' !!}>
+                                                        {{ $p->name }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="Chi">
+                                            @foreach ($packages as $p)
+                                                @if ($p->type == \App\Models\Package::TYPE_OUT)
+                                                    <option value="{{ $p->id }}" {!! $filter['package_id'] == $p->id ? 'selected' : '' !!}>
+                                                        {{ $p->name }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="Cho Vay">
+                                            @foreach ($packages as $p)
+                                                @if ($p->type == \App\Models\Package::TYPE_LEND)
+                                                    <option value="{{ $p->id }}" {!! $filter['package_id'] == $p->id ? 'selected' : '' !!}>
+                                                        {{ $p->name }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                        <optgroup label="Đầu Tư">
+                                            @foreach ($packages as $p)
+                                                @if ($p->type == \App\Models\Package::TYPE_INVEST)
+                                                    <option value="{{ $p->id }}" {!! $filter['package_id'] == $p->id ? 'selected' : '' !!}>
+                                                        {{ $p->name }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        </optgroup>
+                                    </select>
+
+                                    <select name="year" id="" class="form-control" style="width: 33%">
+                                        <option value="">Year</option>
+                                        @for($i = 2023; $i <= date('Y'); $i++)
+                                            <option value="{{ $i }}" {!! $filter['year'] == $i ? 'selected' : '' !!}>
+                                                Năm {{ $i }}
+                                            </option>
+                                        @endfor
+                                    </select>
+
+                                    <select name="month" id="" class="form-control" style="width: 33%">
+                                        <option value="">Month</option>
+                                        @for($i = 1; $i <= 12; $i++)
+                                            <option value="{{ $i }}" {!! $filter['month'] == $i ? 'selected' : '' !!}>
+                                                Tháng {{ $i }}
+                                            </option>
+                                        @endfor
+                                    </select>
+                                </div>
                             </div>
 
                             <button class="btn btn-secondary" type="submit">Search</button>
