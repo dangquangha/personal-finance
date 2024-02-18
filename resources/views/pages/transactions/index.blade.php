@@ -42,7 +42,7 @@
                 <div class="col-md-8 mb-3">
                     <form>
                         <div class="d-flex">
-                            <div class="col-5 pl-0">
+                            <div class="col-5 col-md-8 pl-0">
                                 <div class="d-flex justify-content-between">
                                     <select name="package" class="form-control" id="package-select" style="width: 33%">
                                         <option></option>
